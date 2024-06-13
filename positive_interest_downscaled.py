@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 from data_preprocess import sp500_data
 
-REPETITIONS = 1000
-INVESTMENT_PERIOD = 365 * 5
+from constants import *
 
 
 data = sp500_data()
@@ -22,5 +21,5 @@ for leverage in [1,2,3,4,5,6]:
             final_value.append(np.cumprod(interests)[-1])
         df.at[downscale, f"leverage : {leverage}"]= np.sum(np.array(final_value) > 1) / REPETITIONS
 
-def plot_positive_interest_downscaled():
-    px.line(df,labels={'index':'positive interest downscale','value':'probability for profit'}).add_hline(y=0.5,annotation_text= "0.5").show()
+
+positive_interest_downscaled=px.line(df,labels={'index':'positive interest downscale','value':'probability for profit'}).add_hline(y=0.5,annotation_text= "0.5")
