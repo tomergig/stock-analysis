@@ -40,6 +40,7 @@ fig.show()
 
 
 
+
 df=pd.DataFrame({"regular":[np.mean(lose_half),np.mean(np.array(last_value) > 1),np.std(np.array(last_value) > 1)],
                  "3x":[np.mean(lose_half_3x),np.mean(np.array(last_value_3x) > 1),np.std(np.array(last_value_3x) > 1)],
                  "3x simulation":[np.mean(lose_half_sim3x),np.mean(np.array(last_value_sim3x) > 1),np.std(np.array(last_value_sim3x) > 1)]}
